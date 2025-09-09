@@ -132,7 +132,7 @@ document.querySelector("form").addEventListener("submit", async function(e){
   const timeline = document.getElementById("timeline").value;
   const brief = document.getElementById("brief").value;
 
-  const res = await fetch("https://your-backend.onrender.com/api/orders", {
+  const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/orders", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, service, budget, timeline, brief })

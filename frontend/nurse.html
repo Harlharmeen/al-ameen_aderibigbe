@@ -218,7 +218,7 @@ document.getElementById("commentForm").addEventListener("submit", function(e) {
   // Load existing comments on page load
   async function loadComments() {
     try {
-      const res = await fetch(`https://your-backend.onrender.com/api/comments/${postId}`);
+      const res = await fetch(`https://al-ameen-aderibigbe.onrender.com/api/comments/${postId}`);
       const data = await res.json();
 
       commentsContainer.innerHTML = "";
@@ -245,7 +245,7 @@ document.getElementById("commentForm").addEventListener("submit", function(e) {
     const comment = document.getElementById("comment").value;
 
     try {
-      const res = await fetch("https://your-backend.onrender.com/api/comments", {
+      const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/comments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ postId, name, email, comment }),
