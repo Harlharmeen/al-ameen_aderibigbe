@@ -206,66 +206,65 @@ document.getElementById("commentForm").addEventListener("submit", function(e) {
 </script>
 <!-- ✅ Load Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <script>
-  const commentForm = document.getElementById("commentForm");
-  const commentsContainer = document.getElementById("commentsContainer");
+<script>
+const postId = "hour-article-001"; // give each blog page a unique ID or slug
 
-  // ⚡ Set your page's unique postId (slug, title, or id)
-  const postId = document.body.getAttribute("data-post-id");
+// Load existing comments
+async function loadComments() {
+  try {
+    const res = await fetch(`https://al-ameen-aderibigbe.onrender.com/api/comments/${postId}`);
+    const data = await res.json();
 
-  // Load existing comments on page load
-  async function loadComments() {
-    try {
-      const res = await fetch(`https://al-ameen-aderibigbe.onrender.com/api/comments/${postId}`);
-      const data = await res.json();
+    const container = document.getElementById("commentsContainer");
+    container.innerHTML = "";
 
-      commentsContainer.innerHTML = "";
-      if (data.success && data.data.length > 0) {
-        data.data.forEach(c => {
-          const li = document.createElement("li");
-          li.innerHTML = `<strong>${c.name}</strong>: ${c.comment}`;
-          commentsContainer.appendChild(li);
-        });
-      } else {
-        commentsContainer.innerHTML = "<li>No comments yet. Be the first!</li>";
-      }
-    } catch (err) {
-      console.error("Error loading comments:", err);
-    }
-  }
-
-  // Handle form submit
-  commentForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const comment = document.getElementById("comment").value;
-
-    try {
-      const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/comments", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ postId, name, email, comment }),
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        // Append new comment without reload
+    if (data.success && data.data.length > 0) {
+      data.data.forEach(c => {
         const li = document.createElement("li");
-        li.innerHTML = `<strong>${data.data.name}</strong>: ${data.data.comment}`;
-        commentsContainer.prepend(li);
-        commentForm.reset();
-      } else {
-        alert("❌ Failed to post comment");
-      }
-    } catch (err) {
-      console.error("Error posting comment:", err);
+        li.innerHTML = `<strong>${c.name}</strong> <span class="text-muted small">says:</span><p>${c.comment}</p>`;
+        container.appendChild(li);
+      });
+    } else {
+      container.innerHTML = "<li>No comments yet. Be the first!</li>";
     }
-  });
+  } catch (err) {
+    console.error("Error loading comments:", err);
+  }
+}
 
-  loadComments();
+// Submit new comment
+document.getElementById("commentForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const comment = document.getElementById("comment").value.trim();
+
+  if (!name || !comment) return;
+
+  try {
+    const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ postId, name, email, comment })
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      loadComments(); // reload comments
+      document.getElementById("commentForm").reset();
+    } else {
+      alert("Failed to post comment ❌: " + data.message);
+    }
+  } catch (err) {
+    alert("Error posting comment ❌");
+  }
+});
+
+// Load comments when page starts
+loadComments();
 </script>
+
 
     <script src="Charity Articles.js"></script>
   </body>

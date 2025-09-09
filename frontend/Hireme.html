@@ -111,42 +111,39 @@
     </main>
   </div>
 
-  <script>
-    document.querySelector('form').addEventListener('submit', function(e){
-      e.preventDefault();
-      var n = document.getElementById('sentNotice');
-      n.classList.add('ok');
-      n.textContent = 'Thanks! Your request is saved. I\'ll email you shortly.';
-      this.reset();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
-  <script>
+ <script>
 document.querySelector("form").addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
   const service = document.getElementById("service").value;
   const budget = document.getElementById("budget").value;
   const timeline = document.getElementById("timeline").value;
-  const brief = document.getElementById("brief").value;
+  const brief = document.getElementById("brief").value.trim();
 
-  const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/orders", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, service, budget, timeline, brief })
-  });
+  try {
+    const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, service, budget, timeline, brief })
+    });
 
-  const data = await res.json();
-  if(data.success){
-    alert("Request submitted successfully ✅");
-    this.reset();
-  } else {
-    alert("Failed ❌: " + data.message);
+    const data = await res.json();
+    if (data.success) {
+      alert("✅ Request submitted successfully! I’ll get back to you.");
+      this.reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      alert("❌ Failed: " + (data.message || "Something went wrong"));
+    }
+  } catch (err) {
+    alert("❌ Network error. Please try again.");
+    console.error(err);
   }
 });
 </script>
+
 
 </body>
 </html>

@@ -684,26 +684,32 @@
 document.getElementById("contactForm").addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const subject = document.getElementById("subject").value;
-  const message = document.getElementById("message").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-  const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, subject, message })
-  });
+  try {
+    const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, subject, message })
+    });
 
-  const data = await res.json();
-  if(data.success){
-    alert("Message sent successfully ✅");
-    this.reset();
-  } else {
-    alert("Failed ❌: " + data.message);
+    const data = await res.json();
+    if (data.success) {
+      alert("✅ Message sent successfully! I’ll reply shortly.");
+      this.reset();
+    } else {
+      alert("❌ Failed: " + (data.message || "Something went wrong"));
+    }
+  } catch (err) {
+    alert("❌ Network error. Please try again.");
+    console.error(err);
   }
 });
 </script>
+
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
