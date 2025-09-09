@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import connectDB from "./config/db.js";
 import contactRoutes from "./routes/contactRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
@@ -11,6 +12,13 @@ connectDB();
 
 const app = express();
 app.use(express.json());
+
+// ✅ Enable CORS so Vercel frontend can connect
+app.use(cors({
+  origin: ["https://al-ameen-aderibigbe.vercel.app"], // replace with your frontend domain
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 
 // Routes
 app.use("/api/contact", contactRoutes);
