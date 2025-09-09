@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArticlesDOM</title>
+    <link rel="stylesheet" href="Charity Articles.css">
+</head>
+<body>
+    <article class="blog-post">
+        <div id="top-section">
+            <div  id="top-section1"><img src="img/IMG-20250814-WA0002.jpg" alt="" id="blog-img"></div>
+            <div>
+                </div><h1>Handling Rejection like a Stoic</h1>
+                <div  id="top-section2">
+                
+                    <span ></span>
+                    <span >Author: Al-ameen Aderibigbe</span>
+                </div>
+            
+            
+            
+        </div>
+        
+       <div>
+        <article>
+  <p>
+    Rejection is not gender-sensitive; however, my gender is more susceptible to it because we are meant to earn everything by hustling for it — 
+    source of income, reputation, soulmate, societal acceptance, and respect, among many others.
+  </p>
+
+  <p>
+    Therefore, every male should ground himself in this reality and build a model to keep his dignity, sanity, and morals when experiencing rejection, 
+    whether due to incompetence or a ‘fate-against’ moment.
+  </p>
+
+  <p>
+    Attached above is the mental approach I use to beat this inevitable fate (rejection) of all humans, particularly my gender.
+  </p>
+
+  <p>
+    Sincerely, I will advocate that you also emulate this model of approaching rejection because it eases a bit of the pain and disappointment from the sting of rejection.
+  </p>
+
+  <p>
+    Beyond that, it keeps your hope alive and encourages you to continue getting better and trying again — because the more you improve, 
+    the higher your chances of being accepted for whatever you’re aspiring to.
+  </p>
+
+  <p>
+    And eventually, the season will come — you’ll be so good that they can’t ignore you. 
+    And if they do, it’s either because they can’t afford your price or they’re intimidated by what you’re made of.
+  </p>
+
+  <footer>
+    <p>
+      Till then, we continue building.<br>
+      ✍️ <strong>Al-ameen Aderibigbe</strong>
+    </p>
+  </footer>
+</article>
+
+</div>
+          <!-- ✍️ Comment Section -->
+<section class="comment-section container my-5" id="comments">
+  <h2 class="comment-title">💬 Comment Section</h2>
+
+  <!-- Comment Form -->
+  <div class="comment-form-card">
+    <h4>Share Your Thoughts</h4>
+    <form id="commentForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="comment" placeholder="Write your comment here..." required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+  </div>
+
+  <!-- Comment List -->
+  <div id="commentList" class="mt-5">
+    <h4>Recent Comments</h4>
+    <ul id="commentsContainer"></ul>
+  </div>
+</section>
+<!-- 🎨 CSS -->
+<style>
+.comment-section {
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.comment-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2e3192;
+}
+
+.comment-form-card {
+  background: #f8f9ff;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #2e3192;
+  box-shadow: 0 8px 20px rgba(46,49,146,0.15);
+  color: #333;
+}
+
+.comment-form-card h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #2e3192;
+}
+
+.comment-form-card input,
+.comment-form-card textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.comment-form-card input:focus,
+.comment-form-card textarea:focus {
+  border-color: #2e3192;
+  box-shadow: 0 0 5px rgba(46,49,146,0.3);
+}
+
+.comment-form-card button {
+  background: #2e3192;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.comment-form-card button:hover {
+  background: #252774;
+  transform: translateY(-2px);
+}
+
+/* Comments List */
+#commentList h4 {
+  font-weight: 600;
+  color: #2e3192;
+  margin-bottom: 1.5rem;
+}
+
+#commentsContainer {
+  list-style: none;
+  padding: 0;
+}
+
+#commentsContainer li {
+  background: #fff;
+  margin-bottom: 1rem;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border-left: 4px solid #2e3192;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+#commentsContainer li strong {
+  color: #2e3192;
+  font-weight: 600;
+}
+
+#commentsContainer li p {
+  margin: 5px 0 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .comment-title {
+    font-size: 1.4rem;
+  }
+  .comment-form-card h4,
+  #commentList h4 {
+    font-size: 1rem;
+  }
+}
+</style>
+<!-- ⚡ JS -->
+<script>
+document.getElementById("commentForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const comment = document.getElementById("comment").value.trim();
+
+  if (name && email && comment) {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <strong>${name}</strong> <span class="text-muted small">says:</span>
+      <p>${comment}</p>
+    `;
+
+    document.getElementById("commentsContainer").prepend(li);
+    document.getElementById("commentForm").reset();
+  }
+});
+</script>
+<!-- ✅ Load Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+   <script>
+  const commentForm = document.getElementById("commentForm");
+  const commentsContainer = document.getElementById("commentsContainer");
+
+  // ⚡ Set your page's unique postId (slug, title, or id)
+  const postId = document.body.getAttribute("data-post-id");
+
+  // Load existing comments on page load
+  async function loadComments() {
+    try {
+      const res = await fetch(`https://your-backend.onrender.com/api/comments/${postId}`);
+      const data = await res.json();
+
+      commentsContainer.innerHTML = "";
+      if (data.success && data.data.length > 0) {
+        data.data.forEach(c => {
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${c.name}</strong>: ${c.comment}`;
+          commentsContainer.appendChild(li);
+        });
+      } else {
+        commentsContainer.innerHTML = "<li>No comments yet. Be the first!</li>";
+      }
+    } catch (err) {
+      console.error("Error loading comments:", err);
+    }
+  }
+
+  // Handle form submit
+  commentForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const comment = document.getElementById("comment").value;
+
+    try {
+      const res = await fetch("https://your-backend.onrender.com/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postId, name, email, comment }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        // Append new comment without reload
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${data.data.name}</strong>: ${data.data.comment}`;
+        commentsContainer.prepend(li);
+        commentForm.reset();
+      } else {
+        alert("❌ Failed to post comment");
+      }
+    } catch (err) {
+      console.error("Error posting comment:", err);
+    }
+  });
+
+  loadComments();
+</script>
+ 
+    <script src="Charity Articles.js"></script>
+  </body>
+  
+</html>

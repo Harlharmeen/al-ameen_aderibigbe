@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing Archive</title>
+  <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="explore-contentW.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #333;
+    }
+
+    .writing-archive {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 1rem;
+    }
+
+    .archive-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    /* Search Bar */
+    .archive-search {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .archive-search input {
+      width: 90%;
+      max-width: 400px;
+      padding: 0.6rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    /* Filters */
+    .archive-filters {
+      text-align: center;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      background: #f5f5f5;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      background: #ddd;
+    }
+
+    .filter-btn.active {
+      background: #2e3192;
+      color: #fff;
+    }
+
+    /* Grid Layout */
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Cards */
+    .archive-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .archive-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .archive-card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .archive-card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+      .archive-title {
+        font-size: 1.6rem;
+      }
+
+      .filter-btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .archive-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .archive-card p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">A.A</span>_Potential </h1>
+            <h6 class="font-weight-light mb-1">Al-ameen Aderibigbe</h6>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+  <div class="navbar-nav m-auto py-0">
+    <!-- Home -->
+    <a href="index.html" class="nav-item nav-link active">Home</a>
+    
+    <!-- Sections inside Home -->
+    <a href="index.html" class="nav-item nav-link">About</a>
+    <a href="index.html" class="nav-item nav-link">Skills</a>
+    <a href="index.html" class="nav-item nav-link">Latest Publication</a>
+    <a href="index.html" class="nav-item nav-link">Contact</a>
+
+    <!-- Other Pages -->
+    <a href="Writings-archive.html" class="nav-item nav-link">Writings Archive</a>
+    <a href="Hireme.html" class="btn btn-outline-primary d-lg-none">Hire Me</a>
+  </div>
+  
+  <!-- Desktop "Hire Me" Button -->
+  <a href="Hireme.html" class="btn btn-outline-primary d-none d-lg-block">Hire Me</a>
+</div>
+
+    </nav>
+    <!-- Navbar End -->
+  <section class="writing-archive" >
+    <h2 class="archive-title">Writing Archive</h2>
+
+    <!-- Search Bar -->
+    <div class="archive-search">
+      <input type="text" id="searchInput" placeholder="Search writings...">
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="archive-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="content">Content Writing</button>
+      <button class="filter-btn" data-filter="creative">Creative Writing</button>
+      <button class="filter-btn" data-filter="social">Social Media Writing</button>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="archive-grid" id="archiveGrid">
+        <div class="archive-card" data-category="content">
+            <img src="img/getty_476196983_9706939704500181_56366.jpeg" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">3 Proven Money-Making Strategies to Achieve Financial Breakthrough in 2025</h5>
+                <p class="card-text">
+                Understanding these three money-making strategies will set you on the path to financial freedom before the end of 2025. This blog assignment is on how businesses, side hustles, and strategic savings can be leveraged to acquire sustainable wealth.
+                </p>
+                <a href="making money article.html" class="card-link">Read full article</a>
+            </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/marriage.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Holy Matrimony</h5>
+                    <p class="card-text"></p>
+                    <a href="matrimony.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/climbing.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">The Tale of Burn Carbon, Diamond?</h5>
+                    <p class="card-text"></p>
+                    <a href="tale.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="content">
+            <img src="img/Picture1.png" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">The More You Give, The More You Receive: The Rewarding Nature of Generosity</h5>
+                <p class="card-text">
+                Understand the power of generosity and the secrets of why giving leads to receiving more. Read on how generosity arouses a sense of purpose and enables an individual's success.
+                </p>
+                <a href="The more article.html" class="card-link">Read full article</a>
+            </div>
+        </div>
+        <div class="archive-card" data-category= "social">
+            <img src="img/IMG-20250814-WA0001.jpg" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Hack to Life Unfair Advantage</h5>
+                <p class="card-text">
+                </p>
+                <a href="#" class="card-link">Read</a>
+            </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/marriage.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Holy Matrimony</h5>
+                    <p class="card-text"></p>
+                    <a href="matrimony.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="content">
+            <img src="img/begging-bridge-with-person-who-handed-bread.jpg" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Why Charity (Sadaqah) Is The Most Rewarding Investment For Muslim Youths: Worthy Inspiring Insights</h5>
+                <p class="card-text">
+                Want blessings in life, ease in the grave, and rewards in the Hereafter? Discover why Sadaqah (charity) is the best investment for Muslims in their youth.
+                </p>
+                <a href="Charity Articles.html" class="card-link">Read full article</a>
+            </div>
+        </div>
+         <div class="archive-card" data-category="creative">
+                <img src="img/marriage.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Holy Matrimony</h5>
+                    <p class="card-text"></p>
+                    <a href="matrimony.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/money.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Miscalled Evil.</h5>
+                    <p class="card-text"></p>
+                    <a href="miscalled.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="content">
+            <img src="img/unrecognizable-black-lady-sitting-desk-office-night-writing-journal.jpg" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">How to Write Clear, Concise, and Effective Standard Operating Procedures (SOPs)</h5>
+                <p class="card-text">
+                Understand why your business needs SOPs, how to write industry-demanded standards, and the key factors that ensure their success or failure.
+                </p>
+                <a href="sop article.html" class="card-link">Read full article</a>
+            </div>
+        </div>
+
+        <div class="archive-card" data-category="social">
+            <img src="img/IMG-20250814-WA0002.jpg" class="card-img-top img-fluid" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">How to Handle Rejection like a Stoic</h5>
+                <p class="card-text">
+                </p>
+                <a href="s#" class="card-link">Read</a>
+            </div>
+        </div>
+
+         
+        <div class="archive-card" data-category="creative">
+                <img src="img/climbing.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">The Tale of Burn Carbon, Diamond?</h5>
+                    <p class="card-text"></p>
+                    <a href="tale.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/fasting.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">The thirst is gone</h5>
+                    <p class="card-text"></p>
+                    <a href="thirst.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/final afcon.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Endgame🦅♟️🐘</h5>
+                   <p class="card-text"></p> 
+                    <a href="AFCON.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/flower.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">The Flower’s Prime Privilege</h5>
+                    <p class="card-text"></p>
+                    <a href="flower.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/vector-of-a-businessman-running-after-his-career-goal-concept-of-success-and-motivation-W1242J.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Man Without Her...Has No Life </h5>
+                    <p class="card-text"></p>
+                    <a href="her.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/it rest.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">In hour of work</h5>
+                    <p class="card-text"></p>
+                    <a href="hour.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/life.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Life</h5>
+                    <p class="card-text"></p>
+                    <a href="life.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/longing.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Just Longing</h5>
+                    <p class="card-text"></p>
+                    <a href="just.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/moon.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">A Stare at The Moon</h5>
+                    <p class="card-text"></p>
+                    <a href="stare.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/self analysis.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">A Tour Within</h5>
+                    <p class="card-text"></p>
+                    <a href="tour.html" class="card-link">Read</a>
+                </div>
+        </div>
+        <div class="archive-card" data-category="creative">
+                <img src="img/to nurse.jpg" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Why Nurse?…Why not Nurse?</h5>
+                    <p class="card-text"></p>
+                    <a href="nurse.html" class="card-link">Read</a>
+                </div>
+        </div>
+
+
+
+  </section>
+ <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-light btn-social mr-2" href="https://x.com/AA_Potential"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="https://www.facebook.com/share/1CfA9pJi3w/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="https://www.linkedin.com/in/al-ameen-aderibigbe?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-light btn-social" href="https://youtube.com/@aapotential?si=lYcOwGnEcp9UuGlD"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="index.html">Al-ameen Aderibigbe</a>. All Rights Reserved. Inspired by <a class="text-white font-weight-bold" href="https://htmlcodex.com">HTML Codex</a>
+            </p>
+        </div>
+    </div>
+    <!-- Footer End -->
+  <!-- JavaScript for Filtering + Search -->
+  <script>
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".archive-card");
+    const searchInput = document.getElementById("searchInput");
+
+    let activeFilter = "all";
+
+    function filterCards() {
+      const searchText = searchInput.value.toLowerCase();
+
+      cards.forEach(card => {
+        const matchesCategory = activeFilter === "all" || card.dataset.category === activeFilter;
+        const title = card.querySelector("h3, h5"); 
+const desc = card.querySelector("p");
+
+const matchesSearch =
+  (title && title.innerText.toLowerCase().includes(searchText)) ||
+  (desc && desc.innerText.toLowerCase().includes(searchText));
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Category filter
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeFilter = btn.getAttribute("data-filter");
+        filterCards();
+      });
+    });
+
+    // Search filter
+    searchInput.addEventListener("keyup", filterCards);
+  </script>
+  <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/typed/typed.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

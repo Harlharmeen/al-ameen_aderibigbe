@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="hireCWform.css">
+</head>
+<body>
+    <div class="container">
+        <section id="content-intake-form" class="form-section">
+        <form id="intakeForm">
+      
+          <!-- Step 1: Client Info -->
+          <div class="form-step active">
+            <h2>🧾 Client Information</h2>
+            <label>Full Name:<br><input type="text" name="fullName" required></label><br>
+            <label>Company/Brand Name:<br><input type="text" name="brand"></label><br>
+            <label>Email Address:<br><input type="email" name="email" required></label><br>
+            <label>Phone Number (optional):<br><input type="tel" name="phone"></label><br>
+            <label>Website or Social Handle:<br><input type="text" name="webOrSocial"></label><br>
+            <button type="button" onclick="nextStep()">Next</button>
+          </div>
+      
+          <!-- Step 2: Project Overview -->
+          <div class="form-step">
+            <h2>📋 Project Overview</h2>
+            <p>What type of content do you need?</p>
+            <label><input type="checkbox" name="type[]" value="Blog Posts"> Blog Posts</label><br>
+            <label><input type="checkbox" name="type[]" value="Website Content"> Website Content</label><br>
+            <label><input type="checkbox" name="type[]" value="Product Descriptions"> Product Descriptions</label><br>
+            <label><input type="checkbox" name="type[]" value="Email Newsletters"> Email Newsletters</label><br>
+            <label><input type="checkbox" name="type[]" value="Social Media Captions"> Social Media Captions</label><br>
+            <label><input type="checkbox" name="type[]" value="eBooks"> eBooks or Whitepapers</label><br>
+            <label><input type="text" name="typeOther" placeholder="Other (please specify)"></label><br>
+            <label>Briefly describe your project or content goals:<br>
+              <textarea name="goals" rows="4" required></textarea></label><br>
+            <label>Target Audience:<br><input type="text" name="audience" placeholder="e.g., Gen Z, tech users..."></label><br>
+            <button type="button" onclick="prevStep()">Back</button>
+            <button type="button" onclick="nextStep()">Next</button>
+          </div>
+      
+          <!-- Step 3: Content Details -->
+          <div class="form-step">
+            <h2>✍️ Content Details</h2>
+            <label>How many pieces of content?<br><input type="text" name="quantity" required></label><br>
+            <label>Preferred word count range:<br><input type="text" name="wordcount" placeholder="e.g., 800–1000 words"></label><br>
+            <label>Do you have specific keywords/tone?<br>
+              <input type="radio" name="keywords" value="Yes"> Yes
+              <input type="radio" name="keywords" value="No"> No
+            </label><br>
+            <label>If Yes, provide details:<br><textarea name="keywordDetails"></textarea></label><br>
+            <label>Topic Source:<br>
+              <input type="radio" name="topics" value="Client"> Client will provide
+              <input type="radio" name="topics" value="Writer"> Writer should suggest
+            </label><br>
+            <button type="button" onclick="prevStep()">Back</button>
+            <button type="button" onclick="nextStep()">Next</button>
+          </div>
+      
+          <!-- Step 4: Timeline & Budget -->
+          <div class="form-step">
+            <h2>📅 Timeline & Budget</h2>
+            <label>Ideal start date or deadline:<br><input type="date" name="deadline"></label><br>
+            <label>Budget range:<br><input type="text" name="budget" placeholder="₦50,000 – ₦100,000 or $100–$300"></label><br>
+            <button type="button" onclick="prevStep()">Back</button>
+            <button type="button" onclick="nextStep()">Next</button>
+          </div>
+      
+          <!-- Step 5: Additional Info -->
+          <div class="form-step">
+            <h2>📎 Additional Info</h2>
+            <label>Upload brand guides/references:<br><input type="file" name="uploads"></label><br>
+            <label>Preferred communication method:<br>
+              <input type="radio" name="contact" value="Email"> Email
+              <input type="radio" name="contact" value="WhatsApp"> WhatsApp
+              <input type="radio" name="contact" value="Zoom"> Zoom
+              <input type="radio" name="contact" value="Call"> Phone Call
+            </label><br>
+            <button type="button" onclick="prevStep()">Back</button>
+            <button type="submit">📨 Send Request</button>
+          </div>
+      
+        </form>
+      
+        <!-- Optional Discovery Call -->
+        <p style="margin-top:20px;">
+          📞 Prefer to talk first? <a href="https://wa.me/+2347080462661" target="_blank">Book a 10–15 min discovery call on WhatsApp</a>
+        </p>
+        </section>
+    </div>
+      
+
+   <script src="hireCWform.js"></script>   
+</body>
+</html>

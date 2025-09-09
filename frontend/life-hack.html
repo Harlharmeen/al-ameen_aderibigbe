@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArticlesDOM</title>
+    <link rel="stylesheet" href="Charity Articles.css">
+</head>
+<body>
+    <article class="blog-post">
+        <div id="top-section">
+            <div  id="top-section1"><img src="img/IMG-20250814-WA0001.jpg" alt="" id="blog-img"></div>
+            <div>
+                </div><h1>Hack to Life Unfair Advantage</h1>
+                <div  id="top-section2">
+                
+                    <span ></span>
+                    <span >Author: Al-ameen Aderibigbe</span>
+                </div>
+            
+            
+            
+        </div>
+        
+       <div>
+        <article>
+  <p>
+    To whine about the <em>“unfairness”</em> of life is to waste one’s time. 
+    But to accept this harsh reality early is to position yourself for a successful lifetime — despite the odds.
+  </p>
+
+  <p>
+    Today, I want to share lessons worth <strong>$1,000</strong> from a supposed life coach bootcamp, 
+    to give you an unfair advantage in life—completely free. Kindly read carefully, and read to the end.
+  </p>
+
+  <h2>Matthew Principle</h2>
+  <blockquote>
+    “For to everyone who has, more will be given, and he will have an abundance; 
+    but from the one who has not, even what he has will be taken away.” <br>
+    <cite>(Matthew 25:29)</cite>
+  </blockquote>
+
+  <p>
+    This principle helps us understand the natural inequality that exists in life—across wealth, fame, health, intelligence, beauty, etc. 
+    It also reminds us of the power of momentum: once growth begins, it tends to compound—either positively or negatively 🚨.
+  </p>
+
+  <h2>Pareto Principle</h2>
+  <blockquote>
+    “Roughly 80% of results come from 20% of efforts.”
+  </blockquote>
+
+  <p>Some well-known examples:</p>
+  <ul>
+    <li>80% of your sales come from 20% of your customers.</li>
+    <li>80% of complaints come from 20% of product/service users.</li>
+    <li>80% of your results come from 20% of your tasks.</li>
+  </ul>
+
+  <p>
+    This principle gives us an analytical edge. It allows us to reflect on our actions and engagement—what’s working, what’s draining us. 
+    From there, we know where to double down and what to eliminate.
+  </p>
+
+  <h2>Conclusion: Practical Synthesis of the Two Laws</h2>
+  <p>
+    To gain an unfair advantage in life, you have to combine both principles.
+  </p>
+  <p>
+    Use the <strong>Pareto Principle</strong> to focus your limited time and energy on the small actions that yield the biggest outcomes.
+  </p>
+  <p>
+    And apply the <strong>Matthew Principle</strong> by nurturing early progress—whether in skill-building, habit formation, or audience growth—because initial results, when sustained, often snowball into abundance.
+  </p>
+
+  <p>
+    <em>
+      PS: The knowledge presented above is gathered from books I read and successful speakers I listen to 
+      and not a manifestation of my mastery of life knowledge.
+    </em>
+  </p>
+
+  <footer>
+    <p><strong>Day 10</strong> of the 100-day content creation challenge.</p>
+  </footer>
+</article>
+</div>
+          <!-- ✍️ Comment Section -->
+<section class="comment-section container my-5" id="comments">
+  <h2 class="comment-title">💬 Comment Section</h2>
+
+  <!-- Comment Form -->
+  <div class="comment-form-card">
+    <h4>Share Your Thoughts</h4>
+    <form id="commentForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="comment" placeholder="Write your comment here..." required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+  </div>
+
+  <!-- Comment List -->
+  <div id="commentList" class="mt-5">
+    <h4>Recent Comments</h4>
+    <ul id="commentsContainer"></ul>
+  </div>
+</section>
+<!-- 🎨 CSS -->
+<style>
+.comment-section {
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.comment-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2e3192;
+}
+
+.comment-form-card {
+  background: #f8f9ff;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #2e3192;
+  box-shadow: 0 8px 20px rgba(46,49,146,0.15);
+  color: #333;
+}
+
+.comment-form-card h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #2e3192;
+}
+
+.comment-form-card input,
+.comment-form-card textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.comment-form-card input:focus,
+.comment-form-card textarea:focus {
+  border-color: #2e3192;
+  box-shadow: 0 0 5px rgba(46,49,146,0.3);
+}
+
+.comment-form-card button {
+  background: #2e3192;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.comment-form-card button:hover {
+  background: #252774;
+  transform: translateY(-2px);
+}
+
+/* Comments List */
+#commentList h4 {
+  font-weight: 600;
+  color: #2e3192;
+  margin-bottom: 1.5rem;
+}
+
+#commentsContainer {
+  list-style: none;
+  padding: 0;
+}
+
+#commentsContainer li {
+  background: #fff;
+  margin-bottom: 1rem;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border-left: 4px solid #2e3192;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+#commentsContainer li strong {
+  color: #2e3192;
+  font-weight: 600;
+}
+
+#commentsContainer li p {
+  margin: 5px 0 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .comment-title {
+    font-size: 1.4rem;
+  }
+  .comment-form-card h4,
+  #commentList h4 {
+    font-size: 1rem;
+  }
+}
+</style>
+<!-- ⚡ JS -->
+<script>
+document.getElementById("commentForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const comment = document.getElementById("comment").value.trim();
+
+  if (name && email && comment) {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <strong>${name}</strong> <span class="text-muted small">says:</span>
+      <p>${comment}</p>
+    `;
+
+    document.getElementById("commentsContainer").prepend(li);
+    document.getElementById("commentForm").reset();
+  }
+});
+</script>
+<!-- ✅ Load Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+  const commentForm = document.getElementById("commentForm");
+  const commentsContainer = document.getElementById("commentsContainer");
+
+  // ⚡ Set your page's unique postId (slug, title, or id)
+  const postId = document.body.getAttribute("data-post-id");
+
+  // Load existing comments on page load
+  async function loadComments() {
+    try {
+      const res = await fetch(`https://your-backend.onrender.com/api/comments/${postId}`);
+      const data = await res.json();
+
+      commentsContainer.innerHTML = "";
+      if (data.success && data.data.length > 0) {
+        data.data.forEach(c => {
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>${c.name}</strong>: ${c.comment}`;
+          commentsContainer.appendChild(li);
+        });
+      } else {
+        commentsContainer.innerHTML = "<li>No comments yet. Be the first!</li>";
+      }
+    } catch (err) {
+      console.error("Error loading comments:", err);
+    }
+  }
+
+  // Handle form submit
+  commentForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const comment = document.getElementById("comment").value;
+
+    try {
+      const res = await fetch("https://your-backend.onrender.com/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postId, name, email, comment }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        // Append new comment without reload
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${data.data.name}</strong>: ${data.data.comment}`;
+        commentsContainer.prepend(li);
+        commentForm.reset();
+      } else {
+        alert("❌ Failed to post comment");
+      }
+    } catch (err) {
+      console.error("Error posting comment:", err);
+    }
+  });
+
+  loadComments();
+</script>
+
+    <script src="Charity Articles.js"></script>
+  </body>
+  
+</html>

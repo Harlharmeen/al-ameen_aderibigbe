@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hire Me – Content & Creative Writer</title>
+  <meta name="description" content="Quick, friendly hire form to start your writing project – content & creative writing for blogs, social, campaigns, and more." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Hireme.css">
+</head>
+<body>
+  <div class="wrap">
+    <main class="card grid" role="main">
+      <!-- Intro side -->
+      <section class="side" aria-label="Intro">
+        <div class="logo" aria-label="Brand">
+          <div class="logo-badge" aria-hidden="true">AA</div>
+          <span>AA Potential • Writer</span>
+        </div>
+        <header>
+          <h1>Let’s make words work for you</h1>
+          <p class="lead">Quick form. Clear results. Tell me what you need and I’ll reply with a simple plan and quote—usually in less than a day.</p>
+        </header>
+        <div class="bullets" aria-label="What I can help with">
+          <div><div class="check">✓</div><div>Blog & SEO Articles</div></div>
+          <div><div class="check">✓</div><div>Brand & Campaign Copy</div></div>
+          <div><div class="check">✓</div><div>Social & Email Content</div></div>
+          <div><div class="check">✓</div><div>Scripts & Storytelling</div></div>
+        </div>
+        <div class="trust">
+          <span class="pill">Friendly & collaborative</span>
+          <span class="pill">Clear timelines</span>
+          <span class="pill">No fluff. Just results.</span>
+        </div>
+      </section>
+
+      <!-- Form side -->
+      <section aria-label="Hire form">
+        <form action="#" method="post" novalidate>
+          <div id="sentNotice" class="notice" role="status" aria-live="polite">Thanks! Your request was sent. I’ll get back to you shortly.</div>
+
+          <fieldset>
+            <div class="row two">
+              <div>
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" inputmode="text" autocomplete="name" placeholder="Aluko Mashood" required>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+
+            <div class="row two">
+              <div>
+                <label for="service">What do you need?</label>
+                <select id="service" name="service" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option>Blog/Article Writing</option>
+                  <option>Website/Brand Copy</option>
+                  <option>Social/Email Content</option>
+                  <option>Script/Video Narration</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="budget">Your budget (USD/Naira)</label>
+                <select id="budget" name="budget" required>
+                  <option value="" disabled selected>Select a range</option>
+                  <option>Under $100/#150,000</option>
+                  <option>$100 – $300/#450,000</option>
+                  <option>$300 – $500/#750,000</option>
+                  <option>$500+/#750,000+</option>
+                </select>
+                <p class="hint">No pressure—just helps me tailor options.</p>
+              </div>
+            </div>
+
+            <div>
+              <label for="timeline">Ideal timeline</label>
+              <select id="timeline" name="timeline" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>ASAP (1–2 weeks)</option>
+                <option>Soon (2–4 weeks)</option>
+                <option>Flexible (1–2 months)</option>
+                <option>Ongoing/retainer</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="brief">Project brief</label>
+              <textarea id="brief" name="brief" placeholder="A few lines about your brand, audience, and goal. Keep it simple—bullet points are great."></textarea>
+              <p class="hint">Short is fine. We’ll refine together.</p>
+            </div>
+
+            <div class="inline">
+              <input id="updates" name="updates" type="checkbox" value="yes">
+              <label for="updates">Send me a copy of this message</label>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button class="btn" type="submit">Request a proposal</button>
+            <span class="safe">No spam ever. I’ll reply with a clear plan & quote.</span>
+          </div>
+
+          <p class="sr-only">If you have issues with the form, email <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>.</p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var n = document.getElementById('sentNotice');
+      n.classList.add('ok');
+      n.textContent = 'Thanks! Your request is saved. I\'ll email you shortly.';
+      this.reset();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  <script>
+document.querySelector("form").addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const service = document.getElementById("service").value;
+  const budget = document.getElementById("budget").value;
+  const timeline = document.getElementById("timeline").value;
+  const brief = document.getElementById("brief").value;
+
+  const res = await fetch("https://your-backend.onrender.com/api/orders", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, service, budget, timeline, brief })
+  });
+
+  const data = await res.json();
+  if(data.success){
+    alert("Request submitted successfully ✅");
+    this.reset();
+  } else {
+    alert("Failed ❌: " + data.message);
+  }
+});
+</script>
+
+</body>
+</html>

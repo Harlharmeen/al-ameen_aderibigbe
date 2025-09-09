@@ -1,0 +1,129 @@
+
+#dp{
+    width: 300px;
+    height: 300px;
+    object-fit:cover;
+    border-radius: 30px;
+    transition: opacity 0.5s ease-in-out;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #2c2c2c;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin: 0;
+
+
+  }
+  #aboutme{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align:justify;
+  }
+  #aboutme2a{
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 0 1rem;
+  background-color: #fff;}
+  /* Typography */
+  h1, h2, h3, h4 {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: #1b1b1b;
+  }
+  h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1.3;
+    color: #1a1a1a;
+    margin: 30px 0 20px;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    border-left: 4px solid #0077cc;
+    padding-left: 10px;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+    color: #2a2a2a;
+    padding-left: 15px;
+  }
+  
+  h4 {
+    font-size: 1.2rem;
+    color: #444;
+  }
+  
+  p {
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    color: black;
+  }
+  
+  em {
+    font-style: italic;
+    color: #555;
+  }
+  
+  strong {
+    font-weight: bold;
+    color: #222;
+  }
+  
+  /* Lists */
+  ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  li {
+    margin-bottom: 1rem;
+  }
+  
+  li p {
+    margin-bottom: 0.5rem;
+  }
+  ol {
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+    line-height: 1.7;
+  }
+  
+  li {
+    margin-bottom: 0.8rem;
+  }
+  .roman-list {
+    list-style-type: upper-roman;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+  }
+    
+  /* Responsive media query */
+  @media (max-width: 600px) {
+    #top-section2 {
+      flex-direction: column;
+      gap: 5px;
+      text-align: center;
+    }
+    h1 {
+        font-size: 1.8rem;
+        margin: 20px 0 15px;
+      }
+    h2 {
+      font-size: 1.4rem;
+    }
+  
+    h3 {
+      font-size: 1.2rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  }
+  
