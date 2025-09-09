@@ -13,12 +13,20 @@ connectDB();
 const app = express();
 app.use(express.json());
 
-// ✅ Enable CORS so Vercel frontend can connect
+// ✅ Enable CORS for local + production
 app.use(cors({
-  origin: ["https://al-ameen-aderibigbe.vercel.app"], // replace with your frontend domain
+  origin: [
+    "http://localhost:3000", 
+    "https://al-ameen-aderibigbe.vercel.app"
+  ],
   methods: ["GET", "POST"],
   credentials: true
 }));
+
+// Health check route
+app.get("/", (req, res) => {
+  res.send("✅ Backend API is running...");
+});
 
 // Routes
 app.use("/api/contact", contactRoutes);
@@ -30,4 +38,7 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ Server running on http://0.0.0.0:${PORT}`);
+});
