@@ -96,7 +96,7 @@
 <p>Adopting an abundance mindset instead of fearing potential loss helps cultivate generosity. Trusting the law of reciprocity, being generous with wisdom and sincere intention, will all but reduce our anxiety about lacking and make us a more generous being.</p>
 <p>The key to lasting prosperity lies not in hoarding but in sharing. By adopting a generous mindset, we position ourselves to receive more, grow more, and contribute more positively to the world.</p>
         </div>
-             <!-- ✍️ Comment Section -->
+<!-- ✍️ Comment Section -->
 <section class="comment-section container my-5" id="comments">
   <h2 class="comment-title">💬 Comment Section</h2>
 
@@ -117,6 +117,66 @@
     <ul id="commentsContainer"></ul>
   </div>
 </section>
+
+<script>
+const postId = "the-more-article-001"; // unique for each page
+
+// Load existing comments
+async function loadComments() {
+  try {
+    const res = await fetch(`https://al-ameen-aderibigbe.onrender.com/api/comments/${postId}`);
+    const data = await res.json();
+
+    const container = document.getElementById("commentsContainer");
+    container.innerHTML = "";
+
+    if (data.success && data.data.length > 0) {
+      data.data.forEach(c => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${c.name}</strong> <span class="text-muted small">says:</span><p>${c.comment}</p>`;
+        container.appendChild(li);
+      });
+    } else {
+      container.innerHTML = "<li>No comments yet. Be the first!</li>";
+    }
+  } catch (err) {
+    console.error("Error loading comments:", err);
+  }
+}
+
+// Submit new comment
+document.getElementById("commentForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const comment = document.getElementById("comment").value.trim();
+
+  if (!name || !comment) return;
+
+  try {
+    const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ postId, name, email, comment })
+    });
+
+    const data = await res.json();
+    if (data.success) {
+      loadComments(); // reload after save
+      document.getElementById("commentForm").reset();
+    } else {
+      alert("Failed to post comment ❌: " + data.message);
+    }
+  } catch (err) {
+    alert("Error posting comment ❌");
+  }
+});
+
+// Load on page start
+loadComments();
+</script>
+
 <!-- 🎨 CSS -->
 <style>
 .comment-section {
@@ -238,87 +298,10 @@
 }
 </style>
 <!-- ⚡ JS -->
-<script>
-document.getElementById("commentForm").addEventListener("submit", function(e) {
-  e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const comment = document.getElementById("comment").value.trim();
-
-  if (name && email && comment) {
-    const li = document.createElement("li");
-
-    li.innerHTML = `
-      <strong>${name}</strong> <span class="text-muted small">says:</span>
-      <p>${comment}</p>
-    `;
-
-    document.getElementById("commentsContainer").prepend(li);
-    document.getElementById("commentForm").reset();
-  }
-});
-</script>
 <!-- ✅ Load Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<script>
-const postId = "the-more-article-001"; // give each blog page a unique ID or slug
 
-// Load existing comments
-async function loadComments() {
-  try {
-    const res = await fetch(`https://al-ameen-aderibigbe.onrender.com/api/comments/${postId}`);
-    const data = await res.json();
-
-    const container = document.getElementById("commentsContainer");
-    container.innerHTML = "";
-
-    if (data.success && data.data.length > 0) {
-      data.data.forEach(c => {
-        const li = document.createElement("li");
-        li.innerHTML = `<strong>${c.name}</strong> <span class="text-muted small">says:</span><p>${c.comment}</p>`;
-        container.appendChild(li);
-      });
-    } else {
-      container.innerHTML = "<li>No comments yet. Be the first!</li>";
-    }
-  } catch (err) {
-    console.error("Error loading comments:", err);
-  }
-}
-
-// Submit new comment
-document.getElementById("commentForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const comment = document.getElementById("comment").value.trim();
-
-  if (!name || !comment) return;
-
-  try {
-    const res = await fetch("https://al-ameen-aderibigbe.onrender.com/api/comments", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ postId, name, email, comment })
-    });
-
-    const data = await res.json();
-    if (data.success) {
-      loadComments(); // reload comments
-      document.getElementById("commentForm").reset();
-    } else {
-      alert("Failed to post comment ❌: " + data.message);
-    }
-  } catch (err) {
-    alert("Error posting comment ❌");
-  }
-});
-
-// Load comments when page starts
-loadComments();
-</script>
 
 
     <script src="Charity Articles.js"></script>

@@ -32,7 +32,7 @@
 <p> Today! Partner in imagination <br> Tomorrow! Partner in procreating nation <br> Forever, May  Allah support our motion </p>
 </div>
 
- <!-- ✍️ Comment Section -->
+<!-- ✍️ Comment Section -->
 <section class="comment-section container my-5" id="comments">
   <h2 class="comment-title">💬 Comment Section</h2>
 
@@ -53,8 +53,9 @@
     <ul id="commentsContainer"></ul>
   </div>
 </section>
+
 <script>
-const postId = "just-article-001"; // give each blog page a unique ID or slug
+const postId = "just-article-001"; // unique for each page
 
 // Load existing comments
 async function loadComments() {
@@ -98,7 +99,7 @@ document.getElementById("commentForm").addEventListener("submit", async function
 
     const data = await res.json();
     if (data.success) {
-      loadComments(); // reload comments
+      loadComments(); // reload after save
       document.getElementById("commentForm").reset();
     } else {
       alert("Failed to post comment ❌: " + data.message);
@@ -108,9 +109,11 @@ document.getElementById("commentForm").addEventListener("submit", async function
   }
 });
 
-// Load comments when page starts
+// Load on page start
 loadComments();
 </script>
+
+
 
     
     <script src="Charity Articles.js"></script>
@@ -237,27 +240,7 @@ loadComments();
 }
 </style>
 <!-- ⚡ JS -->
-<script>
-document.getElementById("commentForm").addEventListener("submit", function(e) {
-  e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const comment = document.getElementById("comment").value.trim();
-
-  if (name && email && comment) {
-    const li = document.createElement("li");
-
-    li.innerHTML = `
-      <strong>${name}</strong> <span class="text-muted small">says:</span>
-      <p>${comment}</p>
-    `;
-
-    document.getElementById("commentsContainer").prepend(li);
-    document.getElementById("commentForm").reset();
-  }
-});
-</script>
 <!-- ✅ Load Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </body>
